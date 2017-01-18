@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+<script type="text/javascript">
+var ua = navigator.userAgent.toLowerCase();
+var uMobile = '';
+// === REDIRECIONAMENTO PARA iPhone, Windows Phone, Android, etc. ===
+// Lista de substrings a procurar para ser identificado como mobile WAP
+uMobile = '';
+uMobile += 'iphone;ipod;windows phone;android;iemobile 8';
+// Sapara os itens individualmente em um array
+v_uMobile = uMobile.split(';');
+// percorre todos os itens verificando se eh mobile
+var boolMovel = false;
+for (i=0;i<=v_uMobile.length;i++){
+	if (ua.indexOf(v_uMobile[i]) != -1){
+		boolMovel = true;
+	}
+}
+if (boolMovel == true){
+
+location.href='../app/index.php?pag=home.php';
+
+} else {
+	elele=elele
+}
+</script>
+<?php include '1_adador.html'; ?>
+<script language="JavaScript">
+  window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+    return "Ao sair, vai parar a reprodução. Quer mesmo?";
+  }
+</script>
+
+<?php 
+//banco de dados
+$db='u176772291_vcp';
+$host='localhost';
+$user='u176772291_vcp';
+$pass='valdesson01';
+
+$conn=  mysqli_connect($host, $user, $pass, $db);
+//include 'app_home.php';
+?>
+  
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="estilocss_w3.css">
+    <link href="http://webplayer.valdeclickplay.gq/mediaplayer//bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+<script src="http://webplayer.valdeclickplay.gq/mediaplayer/bootstrap-3.3.7-dist/js/jquery-3.1.0.min.js"></script>
+<script src="http://webplayer.valdeclickplay.gq/mediaplayer/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- inicio arquivos para slider-jgallery -->
+<link href="http://webplayer.valdeclickplay.gq/mediaplayer/s/jgallery-1.5.5/dist/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://webplayer.valdeclickplay.gq/mediaplayer/s/jgallery-1.5.5/dist/css/jgallery.min.css?v=1.5.0" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://webplayer.valdeclickplay.gq/mediaplayer/s/jgallery-1.5.5/dist/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://webplayer.valdeclickplay.gq/mediaplayer/s/jgallery-1.5.5/dist/js/jgallery.min.js?v=1.5.0"></script>
+<script type="text/javascript" src="http://webplayer.valdeclickplay.gq/mediaplayer/s/jgallery-1.5.5/dist/js/touchswipe.min.js"/></script>
+<!-- fim arquivos para slider-jgallery -->
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <script data-semver="1.2.22" src="angular.js" data-require="angular.js@1.2.x"></script>
+    <script data-require="angular-route.js@1.2.x" src="angular-route.js" data-semver="1.2.13"></script>
+    <!-- <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.13/angular.js" data-semver="1.2.13"></script>
+    <script data-require="angular-route.js@1.2.x" src="http://code.angularjs.org/1.2.13/angular-route.js" data-semver="1.2.13"></script> -->
+    <!-- <script src="app.js"></script> -->
+   <script src="http://webplayer.valdeclickplay.gq/mediaplayer/api_route.php"></script>
+    <!-- <script type="text/php">
+   
+    </script> -->
+  </head>
+
+  <body>
+  <script src="../app/modaljs.js" language="JavaScript" /></script>
+  <style type="text/css">
+body {
+	background-color: #ffffff;
+	font-family: 'Open Sans', Open Sans, sans-serif, arial, calibri;
+	color: #666666;
+	/*width: 300px;
+	height: 480px;*/
+}
+/*codigo font google*/
+@font-face {
+  font-family: 'Open Sans';
+src: url("./OpenSans-Regular.ttf");
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+ #contet {
+  width:49%;
+  height:56%;
+  bottom: 24%; left: 2px;
+  position: fixed;
+  background-color:#F2F2F2;
+  overflow:auto;
+}
+#playermediaon{
+	width:50%;
+  height:80%;
+  bottom: 0; right: 2px;
+  position: fixed;
+}
+img#logosite{
+max-width: 130px;
+}
+iframe#music {
+width:40%;
+  height:50%;
+  bottom: 0; left: 2px;
+  position: fixed;
+  background-color:#F2F2F2;
+}
+#vcp_ads{
+	align-content: center;
+width: 100%;
+}
+#publicidade {
+width:49%;
+height:24%;
+bottom: 0; left: 2px;
+position: fixed;
+background-color:#F2F2F2;
+overflow:auto;
+}
+
+</style>
+  <script type="text/javascript">
+function tamanhoplayer() {
+	tb=prompt("tamanho do player:\np -> pequeno;\ng -> grande;\nm -> médio");
+	if (tb =='p') {
+		document.getElementById('playermediaon').style.width='20%';
+		document.getElementById('contet').style.width='78%';
+		document.getElementById('music').style.width='78%';
+} else if (tb =='g') {
+		document.getElementById('playermediaon').style.width='60%';
+		document.getElementById('contet').style.width='38%';
+		document.getElementById('music').style.width='38%';
+} else if (tb =='m') {
+		document.getElementById('playermediaon').style.width='40%';
+		document.getElementById('contet').style.width='58%';
+		document.getElementById('music').style.width='58%';
+}
+}
+</script>
+<script language="JavaScript">
+function abrir(URL) {
+ 
+  var width = 640;
+  var height = 480;
+ 
+  var left = 99;
+  var top = 99;
+ 
+  window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+ 
+}
+function escondeplay() {
+	document.getElementById('player-media').style.display="none";
+	document.getElementById('vcp_ads').style.display="block";
+	document.getElementById('area-play1').innerHTML = '<a href=javascript:mostraplay(); id="area-play" title="esconda o player"><font size="+1">(X) esconder o anuncio e mostrar o player</font></a>';
+}
+function mostraplay() {
+	document.getElementById('player-media').style.display="block";
+	document.getElementById('vcp_ads').style.display="none";
+	document.getElementById('area-play1').innerHTML = '<a id="area-play" href=javascript:escondeplay(); title="esconda o player" ><font size="+1">(X) esconder o player</font></a>';
+
+}
+</script>
+<script type="text/javascript">
+function playvcp(load) {
+	document.getElementById('player-media').style.display="block";
+	document.getElementById('vcp_ads').style.display="none";
+	document.getElementById('player-media').innerHTML = '<iframe src="../view/ver.php'+load+'" width="100%" height="300" id="musica" scrolling="auto" frameborder="0"></iframe>';
+	//document.getElementById('area-play').innerHTML = '(X) esconder o player';
+	document.getElementById('area-play1').innerHTML = '<a id="area-play" href=javascript:escondeplay(); title="esconda o player" ><font size="+1">(X) esconder o player</font></a>';
+}
+function teste_playvcp() {
+	document.getElementById('player-media').style.display="block";
+	document.getElementById('player-media').innerHTML = '<iframe src="../app/14-%20O%20Lobo.mp3" width="100%" height="300" scrolling="auto" frameborder="0"></iframe>';
+}
+function teste_playlistvcp() {
+	document.getElementById('player-media').style.display="block";
+	document.getElementById('player-media').innerHTML = '<iframe src="vlcplayer.php" width="100%" height="300" scrolling="auto" frameborder="0"></iframe>';
+}
+</script>
+<script type="text/javascript">
+    function buscardados(){
+    	var veri=prompt('vai buscar o que?\n1 - podcasts;\n2 - álbuns;\n3 - artistas;\n4 - playlist');
+    	//document.location='#/search/'+veri;
+    	if (veri == 1) {
+    		termo=prompt('busque agora!');
+    		setTimeout("loaderpag('resu.php?s=pod&termo="+termo+"')", 0001);
+    		
+    	}else if (veri == 2) {
+    		termo=prompt('busque agora!');
+    		setTimeout("loaderpag('resu.php?s=alb&termo="+termo+"')", 0001);
+    	}else if (veri == 3) {
+    		termo=prompt('busque agora!');
+    		setTimeout("loaderpag('resu.php?s=art&termo="+termo+"')", 0001);
+    	}else if (veri == 4) {
+    		termo=prompt('busque agora!');
+    		setTimeout("loaderpag('resu.php?s=pla&termo="+termo+"')", 0001);
+    	}
+    	
+    }
+    </script>
+    <script type="text/javascript">
+ 
+function loaderpag(url) {
+	
+	$(document).ready(function() {
+	$(function(event) {
+		$("#contet").load(url);
+	});
+});
+}
+    </script>
+    <style type="text/css">
+
+		.window{
+			display:none;
+			width:90%;
+			height:90%;
+			position:absolute;
+			left:0;
+			top:0;
+			background:#FFF;
+			z-index:9900;
+			padding:10px;
+			border-radius:10px;
+		}
+
+		#mascara{
+			position:absolute;
+  			left:0;
+  			top:0;
+  			z-index:9000;
+  			background-color:#000;
+  			display:none;
+		}
+
+		.fechar{display:block; text-align:right;}
+
+		</style>
+<div id="id" align="center" ><img src="../img/wp-logo.png" width="100%" id="logosite">
+<a href="#/home">Inicio</a> | 
+<a href="#/rd">FB/G+ sem logar</a> | 
+<a href="#/index.php?pag=playlist.php">Playlists</a> | 
+<a href="#/musica/">Músicas</a> | 
+<a href="#/painel-do-parceiro">Painel</a> |
+<a href="#/fale-conosco">Fale Conosco</a> | 
+<a href="#/podcast/lancamento" >Podcasts</a>
+<a href="#/buscador"><img src="../img/lupa-valdeclickplay.jpg" width="50" style="right: 2px; top: 2px;" height="50" title="busque"></a>
+</div>
+<script type="text/javascript">
+var myIndex = 0;
+setTimeout(carousel, 0001);
+setTimeout(carousel_pub, 0001);
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2500);    
+}
+function carousel_pub() {
+    var i;
+    var x = document.getElementsByClassName("mypromo");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel_pub, 10000);    
+}
+</script>
+<div id="banner" class="window">
+<a href="#" class="fechar">(X) Fechar</a>
+<video src="../../../Alinne_Rosa_L_grima_das_Inimigas.webm" autoplay controls muted width="200" height="200"></video>
+</div>
+<div id="playermediaon">
+        <div align="right">
+        <div id="area-play1"></div>
+        </div>
+		  <div id="player-media"></div>
+		  <div id="vcp_ads" align="center">
+		  <div class="dailymotion-widget" data-placement="585939bf60998f0a60d22b44"></div><script>(function(w,d,s,u,n,e,c){w.PXLObject = n; w[n] = w[n] || function(){(w[n].q = w[n].q || []).push(arguments);};w[n].l = 1 * new Date();e = d.createElement(s); e.async = 1; e.src = u;c = d.getElementsByTagName(s)[0]; c.parentNode.insertBefore(e,c);})(window, document, "script", "//api.dmcdn.net/pxl/client.js", "pxl");</script>
+			</div>
+			<div id="vcp_channel">
+			<iframe width="100%" src="https://www.youtube.com/embed/videoseries?list=PLz7xFWOTnKDguRwhaEXbRcW494EMOR6jk" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div id="publicidade" style="max-width:500px">
+			<?php include 'promo.php'; ?>
+  <!-- <img class="mySlides w3-animate-top" src="playlist/forro.png" height="100">
+  Dúvido vc não toma uma estar na playlist
+  <img class="mySlides w3-animate-left" src="img_rr_02.jpg" style="width:20%">
+  <img class="mySlides w3-animate-top" src="img_rr_03.jpg" style="width:20%">
+  <img class="mySlides w3-animate-bottom" src="img_rr_04.jpg" style="width:20%"> -->
+</div>
+		  </div>
+		  <div id="medifone">
+    <div id="contet" ng-view></div>
+    </div>
+    
+    <!-- mascara para cobrir o site -->	
+		<div id="mascara" align="center">Valdeclickplay ads - Anuncie no maior portal de multi-mídias da
+		internet.</div>
+		<script type="text/javascript">
+		//setTimeout("ads_vcp('#banner')", 5001); 
+		function ads_vcp(id){
+		
+		var alturaTela = $(document).height();
+		var larguraTela = $(window).width();
+		
+			//document.getAttribute("a[rel=modal]").href="#janela2";
+			/*document.getElementById("mascara").style.width=larguraTela;
+			document.getElementById("mascara").style.height=alturaTela;
+			document.getElementById("mascara").style.fadeIn=1000;
+			document.getElementById("mascara").style.fadeTo=0.8;
+			document.getElementById("mascara").style.display="block";
+			document.getElementById("janela2").style.display="block";*/
+			//document.getElementById("janela2").style.display="block";
+			
+			$('#mascara').css({'width':larguraTela,'height':alturaTela});
+					$('#mascara').fadeIn(1000);	
+					$('#mascara').fadeTo("slow",0.8);
+			
+			var left = ($(window).width() /2) - ( $(id).width() / 2 );
+			var top = ($(window).height() / 2) - ( $(id).height() / 2 );
+			
+			$(id).css({'top':top,'left':left});
+					$(id).show();	
+			
+			$("#mascara").click( function(){
+ 					$(this).hide();
+ 					$(".window").hide();
+ 				});
+
+ 				$('.fechar').click(function(ev){
+ 					ev.preventDefault();
+ 					$("#mascara").hide();
+ 					$(".window").hide();
+ 				
+ 				});
+ 				//setTimeout("teste_playlistvcp()", 5001);
+			//document.getElementById("janela2").style.display="block";
+			//document.getElementById("janela2").style.display="block";
+			}	
+		</script>
+  
+  </body>
+
+</html>
